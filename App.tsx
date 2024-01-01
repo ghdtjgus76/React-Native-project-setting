@@ -1,6 +1,6 @@
-import {View} from 'react-native';
 import {RecoilRoot} from 'recoil';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import Navigation from './src/navigators/Navigation';
 
 const queryClient = new QueryClient();
 
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        <View />
+        <Navigation />
       </RecoilRoot>
     </QueryClientProvider>
   );
