@@ -12,6 +12,19 @@
     "strict": true,
     "target": "esnext"
   },
+  "baseUrl": "./src",
+  "paths": {
+    "@apis/*": ["src/apis/*"],
+    "@assets/*": ["src/assets/*"],
+    "@components/*": ["src/components/*"],
+    "@constants/*": ["src/constants/*"],
+    "@libs/*": ["src/libs/*"],
+    "@models/*": ["src/models/*"],
+    "@navigators/*": ["src/navigators/*"],
+    "@screens/*": ["src/screens/*"],
+    "@styles/*": ["src/styles/*"],
+    "@utils/*": ["src/utils/*"]
+  },
   "exclude": [
     "node_modules",
     "babel.config.js",
