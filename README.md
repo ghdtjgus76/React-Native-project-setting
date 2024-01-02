@@ -195,21 +195,21 @@ module.exports = {
 ```
 ```
 // tsconfig.json 아래 항목 추가
-{
-  "baseUrl": "./src",
-  "paths": {
-    "@apis/*": ["src/apis/*"],
-    "@assets/*": ["src/assets/*"],
-    "@components/*": ["src/components/*"],
-    "@constants/*": ["src/constants/*"],
-    "@libs/*": ["src/libs/*"],
-    "@models/*": ["src/models/*"],
-    "@navigators/*": ["src/navigators/*"],
-    "@screens/*": ["src/screens/*"],
-    "@styles/*": ["src/styles/*"],
-    "@utils/*": ["src/utils/*"]
+"compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@apis/*": ["src/apis/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
+      "@libs/*": ["src/libs/*"],
+      "@models/*": ["src/models/*"],
+      "@navigators/*": ["src/navigators/*"],
+      "@screens/*": ["src/screens/*"],
+      "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
-}
 ```
 <br />
 
@@ -324,18 +324,19 @@ export type BottomTabScreenName = keyof BottomTabParamList;
 ```
 ```
 // libs/hooks/useNavigator.ts
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 
-import {StackParamList, BottomTabParamList} from '../../models/navigator';
+import {StackParamList, TabParamList} from 'models/navigator';
 
 const useNavigator = () => {
-  const stackNavigation = useNavigation<StackParamList>();
-  const tabNavigation = useNavigation<BottomTabParamList>();
+  const stackNavigation = useNavigation<NavigationProp<StackParamList>>();
+  const tabNavigation = useNavigation<NavigationProp<TabParamList>>();
 
   return {stackNavigation, tabNavigation};
 };
 
 export default useNavigator;
+
 ```
 ```
 // App.tsx
